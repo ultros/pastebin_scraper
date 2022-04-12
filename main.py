@@ -15,7 +15,7 @@ print(links)
 for link in links:
     parsed_link = re.findall('\A<a href="/.{8}">', str(link))
     for link_text in parsed_link:
-        if link_text != "[]":
+        if link_text:
             #title_text = f'<a href="https://pastebin.com/raw/{link_text[10:18]}">{link.text}</a><br>'
             f = open(f"pastes/{link_text[10:18]}", 'w')
             response = requests.get("https://pastebin.com/raw/{link_text[10:18]}", headers=headers)
