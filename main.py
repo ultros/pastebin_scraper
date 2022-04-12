@@ -18,7 +18,7 @@ for link in links:
         if link_text != "[]":
             #title_text = f'<a href="https://pastebin.com/raw/{link_text[10:18]}">{link.text}</a><br>'
             f = open(f"pastes/{link_text[10:18]}", 'w')
-            response = requests.get("https://pastebin.com/raw/{link_text[10:18]}")
+            response = requests.get("https://pastebin.com/raw/{link_text[10:18]}", headers=headers)
             soup = bs4.BeautifulSoup(response.text, 'html.parser')
             #print(soup.text)
             f.write(soup.text)
